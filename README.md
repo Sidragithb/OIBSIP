@@ -28,7 +28,7 @@ git clone https://github.com/Sidragithb/OIBSIP.git
 
 ## Connect
 
-- LinkedIn: *add your LinkedIn profile URL*
+- LinkedIn: [Sidra Kousar](https://www.linkedin.com/in/sidra-kousar-588848283/)
 - GitHub: [@Sidragithb](https://github.com/Sidragithb)
 
 #oasisinfobyte
