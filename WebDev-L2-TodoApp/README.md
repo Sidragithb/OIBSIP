@@ -17,15 +17,16 @@ An interactive to-do list with **Pending** and **Completed** lists, inline editi
 - [x] A **Mark Complete** toggle moves a task to **Completed Tasks**; clicking it again moves the task back
 - [x] **Edit** turns the task text into an input box (Save / Cancel, Enter / Esc)
 - [x] **Delete** removes a task from either list
-- [x] Counters: **"X pending"** and **"Y completed"**
+- [x] Counters: **"X pending"** and **"Y completed"**, plus a **progress ring** showing the share of tasks done
 - [x] Empty-state messages when a list has no tasks
 - [x] **Bonus:** timestamps showing when each task was added and completed
 - [x] **Bonus:** tasks are saved in `localStorage` and survive a page refresh
 - [x] Responsive: two lists side by side on desktop, stacked on mobile
+- [x] Clean productivity design: Plus Jakarta Sans font, icon buttons for edit and delete, and today's date in the header
 
 ## Tech stack
 
-HTML5 · CSS3 (Grid, Flexbox, custom properties) · JavaScript (ES6, DOM API, `localStorage`, `Intl.DateTimeFormat`)
+HTML5 · CSS3 (Grid, Flexbox, custom properties, `conic-gradient` progress ring) · JavaScript (ES6, DOM API, `localStorage`, `Intl.DateTimeFormat`)
 
 ## How to run
 

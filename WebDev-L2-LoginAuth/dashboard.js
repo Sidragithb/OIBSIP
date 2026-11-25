@@ -32,6 +32,8 @@ function setText(id, text) {
 function showDashboard() {
   const session = Auth.getSession();
 
+  setText("user-avatar", currentUser.username.charAt(0).toUpperCase());
+  setText("user-name", currentUser.username);
   setText("welcome-name", currentUser.username);
   setText("info-username", currentUser.username);
   setText("info-email", currentUser.email);

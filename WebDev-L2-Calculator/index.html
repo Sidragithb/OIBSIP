@@ -5,10 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A browser-based calculator built with HTML, CSS Grid and vanilla JavaScript.">
   <title>Calculator | OIBSIP Web Development</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b5cf6'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpath d='M20 26h24M20 38h24' stroke='white' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="calculator" aria-label="Calculator">
+    <div class="calc-header">
+      <span class="calc-title"><span class="calc-dot" aria-hidden="true"></span>Calculator</span>
+      <span class="calc-mode">Standard</span>
+    </div>
+
     <!-- Display: the top line shows the expression, the bottom line shows the current number or result -->
     <div class="display" role="status" aria-live="polite">
       <div class="expression" id="expression"></div>
@@ -43,7 +52,10 @@
     </div>
   </main>
 
-  <p class="hint">Keyboard works too: 0&ndash;9 &nbsp;.&nbsp; + &minus; * / &nbsp; Enter &nbsp; Backspace &nbsp; Esc</p>
+  <p class="hint">
+    <span>Keyboard</span>
+    <kbd>0&ndash;9</kbd><kbd>+ &minus; * /</kbd><kbd>Enter</kbd><kbd>&#9003;</kbd><kbd>Esc</kbd>
+  </p>
 
   <script src="script.js"></script>
 </body>

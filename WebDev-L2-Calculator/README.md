@@ -22,6 +22,7 @@ A browser-based calculator built with **HTML5, CSS3 and vanilla JavaScript**. It
 - [x] **CSS Grid** button layout
 - [x] Event listeners on every button, with **no inline `onclick`**
 - [x] Extras: ± sign toggle, keyboard support, floating-point fix (`0.1 + 0.2` shows `0.3`) and a responsive layout
+- [x] "Aurora glass" design: a frosted-glass card (`backdrop-filter`) over violet and cyan glows, with the Space Grotesk font
 
 ## Tech stack
 

@@ -3,131 +3,520 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Web Development internship projects for Oasis Infobyte (OIBSIP).">
-  <title>OIBSIP Projects | Sidra Kousar</title>
+  <meta name="description" content="Sidra Kousar's Web Development internship projects for Oasis Infobyte (OIBSIP).">
+  <title>Sidra Kousar | OIBSIP Projects</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b5cf6'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3ESK%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --card-hover: #273449;
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-      --accent: #f59e0b;
+      --bg: #0a0b10;
+      --surface: #11131a;
+      --surface-2: #161924;
+      --border: #1f2330;
+      --text: #ecedf3;
+      --text-muted: #9497a9;
+      --violet: #8b5cf6;
+      --cyan: #22d3ee;
+      --gradient: linear-gradient(135deg, var(--violet), #6366f1 50%, var(--cyan));
     }
 
-    * {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       min-height: 100vh;
-      padding: 3rem 1rem;
-      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      font-family: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+      line-height: 1.6;
       color: var(--text);
-      background: var(--bg);
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(50rem 30rem at 10% -5%, rgba(139, 92, 246, 0.22), transparent 60%),
+        radial-gradient(40rem 26rem at 95% 15%, rgba(34, 211, 238, 0.12), transparent 60%);
+      background-repeat: no-repeat;
     }
 
-    main {
-      max-width: 860px;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    svg {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .container {
+      max-width: 1100px;
       margin: 0 auto;
+      padding: 0 1.25rem;
     }
 
-    .eyebrow {
-      font-size: 0.85rem;
+    /* ===== Nav ===== */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.25rem 0;
+    }
+
+    .monogram {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 700;
+    }
+
+    .monogram span:first-child {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #fff;
+      background: var(--gradient);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.5rem;
+      list-style: none;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+      outline: none;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .pill i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 10px #22c55e;
+    }
+
+    .hero h1 {
+      max-width: 17ch;
+      margin: 1.25rem 0 1rem;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 56ch;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.3rem;
+      border-radius: 12px;
       font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
+      font-size: 0.95rem;
+      transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
     }
 
-    h1 {
-      margin: 0.4rem 0 0.5rem;
-      font-size: clamp(1.8rem, 5vw, 2.6rem);
+    .btn svg {
+      width: 18px;
+      height: 18px;
     }
 
-    .intro {
-      margin-bottom: 2rem;
-      color: var(--muted);
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: var(--gradient);
+      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.35);
+    }
+
+    .btn-ghost {
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .btn-ghost:hover {
+      border-color: #2c3142;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stats strong {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .stats span {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== Projects ===== */
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-head h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      color: var(--text-muted);
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
     }
 
     .card {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #2e3346;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    .thumb {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .thumb img {
       display: block;
-      padding: 1.4rem;
-      border-radius: 14px;
-      border-top: 4px solid var(--accent);
-      color: inherit;
-      text-decoration: none;
-      background: var(--card);
-      transition: background-color 0.15s ease, transform 0.15s ease;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.4s ease;
     }
 
-    .card:hover,
-    .card:focus-visible {
-      background: var(--card-hover);
-      transform: translateY(-3px);
-      outline: none;
+    .card:hover .thumb img {
+      transform: scale(1.03);
     }
 
-    .card span {
-      font-size: 0.8rem;
-      color: var(--accent);
+    .task-chip {
+      position: absolute;
+      bottom: 0.9rem;
+      left: 0.9rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(10, 11, 16, 0.75);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    .card h2 {
-      margin: 0.3rem 0;
+    .card-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1.4rem 1.5rem 1.5rem;
+    }
+
+    .card h3 {
       font-size: 1.25rem;
+      letter-spacing: -0.01em;
     }
 
     .card p {
-      font-size: 0.92rem;
-      color: var(--muted);
+      font-size: 0.93rem;
+      color: var(--text-muted);
     }
 
-    footer {
-      margin-top: 2.5rem;
-      font-size: 0.85rem;
-      color: var(--muted);
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      list-style: none;
+    }
+
+    .tags li {
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #c4b5fd;
+      background: rgba(139, 92, 246, 0.12);
+    }
+
+    .card-links {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: auto;
+      padding-top: 0.5rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .card-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .card-links a:first-child {
+      color: var(--cyan);
+    }
+
+    .card-links a:last-child {
+      color: var(--text-muted);
+    }
+
+    .card-links a:hover {
+      color: var(--text);
+    }
+
+    .card-links svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 4.5rem;
+      padding: 1.75rem 0 2.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .footer a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 760px) {
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding: 3rem 0 2.5rem;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 0.25rem 1rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .monogram span:last-child {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
-  <main>
-    <p class="eyebrow">Oasis Infobyte Internship · Web Development · Level 2</p>
-    <h1>Sidra Kousar's Projects</h1>
-    <p class="intro">Four projects built with HTML, CSS and vanilla JavaScript. Pick one to open the live demo.</p>
+  <div class="container">
+    <nav class="nav" aria-label="Main">
+      <a href="#" class="monogram"><span>SK</span><span>Sidra Kousar</span></a>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="https://github.com/Sidragithb/OIBSIP" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/sidra-kousar-588848283/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      </ul>
+    </nav>
 
-    <div class="grid">
-      <a class="card" href="WebDev-L2-Calculator/">
-        <span>Task 1</span>
-        <h2>Calculator</h2>
-        <p>Arithmetic with operator precedence, no eval(), keyboard support.</p>
-      </a>
-      <a class="card" href="WebDev-L2-TributePage/">
-        <span>Task 2</span>
-        <h2>Tribute Page</h2>
-        <p>A responsive tribute to Ada Lovelace, the first computer programmer.</p>
-      </a>
-      <a class="card" href="WebDev-L2-TodoApp/">
-        <span>Task 3</span>
-        <h2>To-Do App</h2>
-        <p>Pending and completed lists, inline editing, saved in localStorage.</p>
-      </a>
-      <a class="card" href="WebDev-L2-LoginAuth/">
-        <span>Task 4</span>
-        <h2>Login System</h2>
-        <p>Register, log in and a protected dashboard, with hashed passwords.</p>
-      </a>
-    </div>
+    <header class="hero">
+      <span class="pill"><i aria-hidden="true"></i>Web Development &amp; Designing Intern &middot; Oasis Infobyte</span>
+      <h1>Clean, responsive interfaces built with <span class="gradient-text">plain HTML, CSS &amp; JavaScript.</span></h1>
+      <p>Hi, I'm Sidra Kousar. These are my four Level 2 internship projects: a calculator, a tribute page, a to-do app and a login system. Each one is hand-written with no frameworks and works on both desktop and mobile.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#projects">
+          View projects
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/Sidragithb/OIBSIP" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3.1-.4 6.4-1.5 6.4-7A5.4 5.4 0 0 0 20 4.8 5 5 0 0 0 19.9 1S18.7.6 16 2.5a13.4 13.4 0 0 0-7 0C6.3.6 5.1 1 5.1 1A5 5 0 0 0 5 4.8a5.4 5.4 0 0 0-1.5 3.7c0 5.5 3.3 6.6 6.4 7a3.4 3.4 0 0 0-.9 2.6V22"/></svg>
+          Source code
+        </a>
+      </div>
+      <div class="stats">
+        <div><strong>4</strong><span>Projects completed</span></div>
+        <div><strong>0</strong><span>Frameworks used</span></div>
+        <div><strong>100%</strong><span>Responsive layouts</span></div>
+      </div>
+    </header>
 
-    <footer>#oasisinfobyte</footer>
-  </main>
+    <main id="projects">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p>Level 2 &middot; all four tasks</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <a class="thumb" href="WebDev-L2-Calculator/" aria-label="Open Calculator demo">
+            <img src="WebDev-L2-Calculator/screenshots/desktop.png" alt="Calculator screenshot" loading="lazy">
+            <span class="task-chip">Task 1</span>
+          </a>
+          <div class="card-body">
+            <h3>Calculator</h3>
+            <p>Glass-style calculator with correct operator precedence, built without eval(). Handles division by zero and supports the keyboard.</p>
+            <ul class="tags"><li>HTML</li><li>CSS Grid</li><li>JavaScript</li></ul>
+            <div class="card-links">
+              <a href="WebDev-L2-Calculator/">Live demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+              <a href="https://github.com/Sidragithb/OIBSIP/tree/main/WebDev-L2-Calculator" target="_blank" rel="noopener noreferrer">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="thumb" href="WebDev-L2-TributePage/" aria-label="Open Tribute Page demo">
+            <img src="WebDev-L2-TributePage/screenshots/desktop.jpeg" alt="Tribute page screenshot" loading="lazy">
+            <span class="task-chip">Task 2</span>
+          </a>
+          <div class="card-body">
+            <h3>Tribute Page</h3>
+            <p>An editorial-style tribute to Ada Lovelace with a biography, timeline, quote and legacy section. Fully responsive.</p>
+            <ul class="tags"><li>HTML5</li><li>CSS3</li><li>Typography</li></ul>
+            <div class="card-links">
+              <a href="WebDev-L2-TributePage/">Live demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+              <a href="https://github.com/Sidragithb/OIBSIP/tree/main/WebDev-L2-TributePage" target="_blank" rel="noopener noreferrer">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="thumb" href="WebDev-L2-TodoApp/" aria-label="Open To-Do App demo">
+            <img src="WebDev-L2-TodoApp/screenshots/desktop.png" alt="To-do app screenshot" loading="lazy">
+            <span class="task-chip">Task 3</span>
+          </a>
+          <div class="card-body">
+            <h3>To-Do Web App</h3>
+            <p>Pending and completed lists, inline editing, timestamps and a progress ring. Tasks are saved in localStorage.</p>
+            <ul class="tags"><li>JavaScript</li><li>DOM</li><li>localStorage</li></ul>
+            <div class="card-links">
+              <a href="WebDev-L2-TodoApp/">Live demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+              <a href="https://github.com/Sidragithb/OIBSIP/tree/main/WebDev-L2-TodoApp" target="_blank" rel="noopener noreferrer">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="thumb" href="WebDev-L2-LoginAuth/" aria-label="Open Login System demo">
+            <img src="WebDev-L2-LoginAuth/screenshots/login.png" alt="Login system screenshot" loading="lazy">
+            <span class="task-chip">Task 4</span>
+          </a>
+          <div class="card-body">
+            <h3>Login Authentication System</h3>
+            <p>Registration, login and a protected dashboard. Passwords are hashed with PBKDF2-SHA-256 and a random salt.</p>
+            <ul class="tags"><li>JavaScript</li><li>Web Crypto</li><li>Security</li></ul>
+            <div class="card-links">
+              <a href="WebDev-L2-LoginAuth/">Live demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+              <a href="https://github.com/Sidragithb/OIBSIP/tree/main/WebDev-L2-LoginAuth" target="_blank" rel="noopener noreferrer">Code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>&copy; 2026 Sidra Kousar &middot; Oasis Infobyte Internship (OIBSIP)</span>
+      <span>#oasisinfobyte</span>
+    </footer>
+  </div>
 </body>
 </html>

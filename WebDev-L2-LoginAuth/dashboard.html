@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Protected dashboard of a client-side authentication system.">
   <title>Dashboard | SecureAuth</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1220'/%3E%3Cpath d='M32 52s14-7 14-18V20l-14-5-14 5v14c0 11 14 18 14 18z' fill='%2310b981'/%3E%3Cpath d='m26 33 5 5 8-9' fill='none' stroke='%230b1220' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <!-- Loaded in <head> so the login check runs before the page is shown -->
   <script src="auth.js"></script>
@@ -12,24 +16,43 @@
 </head>
 <body class="dashboard-page">
   <header class="topbar">
-    <div class="brand">
-      <span class="brand-logo" aria-hidden="true">&#128274;</span>
-      <span class="brand-name">SecureAuth</span>
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </span>
+        <span class="brand-name">SecureAuth</span>
+      </div>
+      <div class="topbar-right">
+        <div class="user-chip">
+          <span class="avatar" id="user-avatar" aria-hidden="true"></span>
+          <span id="user-name"></span>
+        </div>
+        <button type="button" id="logout-btn" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>
+          Logout
+        </button>
+      </div>
     </div>
-    <button type="button" id="logout-btn" class="btn btn-outline">Logout</button>
   </header>
 
   <!-- Hidden until dashboard.js confirms there is a valid session -->
   <main id="dashboard" class="dashboard" hidden>
     <section class="welcome">
-      <p class="badge">Protected page</p>
+      <p class="badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Protected page
+      </p>
       <h1>Welcome, <span id="welcome-name"></span>!</h1>
       <p class="lead">You are logged in. This page cannot be opened without a valid session.</p>
     </section>
 
     <div class="dash-grid">
       <section class="panel">
-        <h2>Your account</h2>
+        <h2>
+          <span class="panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+          Your account
+        </h2>
         <dl class="details">
           <div><dt>Username</dt><dd id="info-username"></dd></div>
           <div><dt>Email</dt><dd id="info-email"></dd></div>
@@ -39,7 +62,10 @@
       </section>
 
       <section class="panel">
-        <h2>Session</h2>
+        <h2>
+          <span class="panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+          Session
+        </h2>
         <dl class="details">
           <div><dt>Logged in at</dt><dd id="info-login"></dd></div>
           <div><dt>Session expires</dt><dd id="info-expires"></dd></div>
@@ -48,7 +74,10 @@
       </section>
 
       <section class="panel panel-wide">
-        <h2>How your password is stored</h2>
+        <h2>
+          <span class="panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+          How your password is stored
+        </h2>
         <p class="note">
           Your password is never saved as plain text. It is hashed with PBKDF2 (SHA-256,
           100,000 rounds) using a random salt, and only the hash is stored:

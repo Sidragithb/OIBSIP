@@ -23,6 +23,7 @@ Approach chosen: **(A) Front-end only: HTML/CSS/JavaScript with localStorage**
 - [x] **Hashed passwords:** PBKDF2 with SHA-256, 100,000 iterations and a unique 16-byte salt per user
 - [x] **Form validation** on both pages: no empty submissions, valid email format, matching passwords
 - [x] Extras: sessions expire after 1 hour, show/hide password buttons, the "Back" button can't reopen the dashboard after logout, logging out in one tab logs out other tabs, and a responsive design
+- [x] Professional split-screen design: a dark brand panel beside the form, icons inside the input fields, and a dashboard with a user avatar
 
 ## Tech stack
 

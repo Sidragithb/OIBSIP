@@ -17,10 +17,20 @@ const completedCount = document.getElementById("completed-count");
 const pendingEmpty = document.getElementById("pending-empty");
 const completedEmpty = document.getElementById("completed-empty");
 
+const progressRing = document.getElementById("progress-ring");
+const progressValue = document.getElementById("progress-value");
+const progressText = document.getElementById("progress-text");
+
 // Each task: { id, text, completed, createdAt, completedAt }
 let tasks = loadTasks();
 let editingId = null; // id of the task being edited, or null
 let newTaskId = null; // id of the task just added (gets a slide-in animation)
+
+// Small SVG icons for the edit and delete buttons (fixed strings, no user input)
+const ICONS = {
+  edit: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>',
+  delete: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>',
+};
 
 // ----- localStorage (bonus: tasks survive a page refresh) -----
 
@@ -115,6 +125,14 @@ function createButton(label, className, action, id) {
   return button;
 }
 
+function createIconButton(icon, label, className, action, id) {
+  const button = createButton("", `icon-btn ${className}`, action, id);
+  button.innerHTML = ICONS[icon];
+  button.setAttribute("aria-label", label);
+  button.title = label;
+  return button;
+}
+
 function createTaskItem(task) {
   const li = createEl("li", task.completed ? "task completed" : "task");
   li.dataset.id = task.id;
@@ -138,6 +156,7 @@ function createTaskItem(task) {
 
   if (task.id === editingId) {
     // Inline edit mode
+    li.classList.add("editing");
     const editInput = createEl("input", "edit-input");
     editInput.type = "text";
     editInput.value = task.text;
@@ -160,13 +179,23 @@ function createTaskItem(task) {
     body.append(createEl("small", "task-meta", meta));
 
     actions.append(
-      createButton("Edit", "btn-edit", "edit", task.id),
-      createButton("Delete", "btn-delete", "delete", task.id)
+      createIconButton("edit", "Edit task", "btn-edit", "edit", task.id),
+      createIconButton("delete", "Delete task", "btn-delete", "delete", task.id)
     );
   }
 
   li.append(body, actions);
   return li;
+}
+
+function updateProgress(doneCount) {
+  const total = tasks.length;
+  const percent = total ? Math.round((doneCount / total) * 100) : 0;
+
+  progressRing.style.setProperty("--progress", percent);
+  progressRing.setAttribute("aria-label", `${percent}% of tasks completed`);
+  progressValue.textContent = `${percent}%`;
+  progressText.textContent = total ? `${doneCount} of ${total} tasks done` : "No tasks yet";
 }
 
 function render() {
@@ -184,6 +213,8 @@ function render() {
 
   pendingEmpty.hidden = pending.length > 0;
   completedEmpty.hidden = completed.length > 0;
+
+  updateProgress(completed.length);
 
   // Put the cursor in the edit box when editing starts
   const editInput = document.querySelector(".edit-input");
@@ -285,5 +316,12 @@ function handleListInput(event) {
   list.addEventListener("keydown", handleListKeydown);
   list.addEventListener("input", handleListInput);
 });
+
+// Today's date in the header, e.g. "Wednesday, 25 November"
+document.getElementById("today-date").textContent = new Intl.DateTimeFormat(undefined, {
+  weekday: "long",
+  day: "numeric",
+  month: "long",
+}).format(new Date());
 
 render();
