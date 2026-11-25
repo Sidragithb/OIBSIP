@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A tribute page to Ada Lovelace, mathematician and author of the first published computer program.">
+  <title>Ada Lovelace — A Tribute | OIBSIP Web Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="site-nav" aria-label="Page sections">
+    <a href="#top" class="nav-brand">A. Lovelace</a>
+    <ul>
+      <li><a href="#biography">Biography</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#legacy">Legacy</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Hero: name, tagline and portrait ===== -->
+  <header id="top" class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">1815 &ndash; 1852</p>
+        <h1 id="title">Ada Lovelace</h1>
+        <p class="tagline">The mathematician who saw the future of computing a century before it arrived.</p>
+      </div>
+      <figure id="img-div" class="hero-figure">
+        <img
+          id="image"
+          src="images/ada-lovelace.jpg"
+          alt="Watercolour portrait of Ada Lovelace in a lilac dress with a dark lace shawl, holding a fan"
+          width="500"
+          height="718"
+        >
+        <figcaption id="img-caption">
+          Portrait by Alfred Edward Chalon, c. 1840
+        </figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Biography ===== -->
+    <section id="biography" class="section section-light">
+      <div class="container narrow">
+        <h2>Her Story</h2>
+        <p>
+          Augusta Ada Byron was born in London on 10 December 1815, the only legitimate child of
+          the poet Lord Byron and Anne Isabella Milbanke. Her parents separated when she was a few
+          weeks old, and she never got to know her famous father, who left England soon afterwards
+          and died in Greece when she was eight. Her mother, worried that Ada might inherit Byron's
+          restless, poetic temperament, made sure she was taught mathematics and logic from an early
+          age, which was an unusual education for a girl in the early nineteenth century.
+        </p>
+        <p>
+          Ada was a curious and inventive child. At twelve she set out to design a flying machine,
+          studying how birds were built and planning her wings with careful, methodical notes. In
+          1833, at seventeen, she met the mathematician Charles Babbage and was captivated by a working
+          section of his Difference Engine, a mechanical calculator. That meeting began a friendship
+          and correspondence that lasted the rest of her life. Babbage was so impressed by her mind
+          that he called her the &ldquo;Enchantress of Number&rdquo;.
+        </p>
+        <p>
+          In 1842 Ada translated an article about Babbage's newer and far more ambitious design, the
+          Analytical Engine, written in French by the Italian engineer Luigi Menabrea. She added her
+          own explanatory notes, labelled A to G, which ended up about three times longer than the
+          article itself. Published in 1843, Note G set out a step-by-step method for the engine to
+          calculate Bernoulli numbers. It is widely regarded as the first algorithm written to be
+          carried out by a machine, which is why Ada is often called the first computer programmer.
+        </p>
+        <p>
+          What truly set Ada apart was her imagination. Where others saw a powerful calculator, she saw
+          a machine that could work with any kind of symbol, such as letters, musical notes or patterns,
+          as long as their rules could be written down. She called her way of thinking
+          &ldquo;poetical science&rdquo;, a blend of creativity and rigour. Ada died of cancer on
+          27 November 1852, aged just thirty-six. A century later her notes were rediscovered, and her
+          ideas about general-purpose computing now read like a description of the modern world.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Quote ===== -->
+    <section class="section section-quote" aria-label="Quote">
+      <div class="container narrow">
+        <blockquote class="quote">
+          <p>
+            &ldquo;The Analytical Engine weaves algebraical patterns just as the Jacquard-loom weaves
+            flowers and leaves.&rdquo;
+          </p>
+          <footer>
+            &mdash; Ada Lovelace, <cite>Note A</cite>, 1843
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ===== Timeline ===== -->
+    <section id="timeline" class="section section-light">
+      <div class="container">
+        <h2>Key Moments</h2>
+        <ol id="tribute-info" class="timeline">
+          <li>
+            <span class="year">1815</span>
+            <div class="event">
+              <h3>Born in London</h3>
+              <p>Augusta Ada Byron is born on 10 December, daughter of Lord Byron.</p>
+            </div>
+          </li>
+          <li>
+            <span class="year">1828</span>
+            <div class="event">
+              <h3>Designs a flying machine</h3>
+              <p>At twelve, she studies bird anatomy to work out how a flying machine could be built.</p>
+            </div>
+          </li>
+          <li>
+            <span class="year">1833</span>
+            <div class="event">
+              <h3>Meets Charles Babbage</h3>
+              <p>She sees his Difference Engine and begins a lifelong exchange of ideas with him.</p>
+            </div>
+          </li>
+          <li>
+            <span class="year">1835</span>
+            <div class="event">
+              <h3>Marries William King</h3>
+              <p>He is made Earl of Lovelace in 1838, and Ada becomes the Countess of Lovelace.</p>
+            </div>
+          </li>
+          <li>
+            <span class="year">1843</span>
+            <div class="event">
+              <h3>Publishes her Notes</h3>
+              <p>Her translation of Menabrea's paper appears with Notes A&ndash;G, including the Bernoulli numbers algorithm.</p>
+            </div>
+          </li>
+          <li>
+            <span class="year">1852</span>
+            <div class="event">
+              <h3>Dies aged 36</h3>
+              <p>She dies on 27 November and is buried beside her father in Hucknall, Nottinghamshire.</p>
+            </div>
+          </li>
+          <li>
+            <span class="year">1953</span>
+            <div class="event">
+              <h3>Her work is rediscovered</h3>
+              <p>B. V. Bowden republishes her notes in <em>Faster Than Thought</em>, reviving interest in her ideas.</p>
+            </div>
+          </li>
+          <li>
+            <span class="year">1980</span>
+            <div class="event">
+              <h3>A language named Ada</h3>
+              <p>The US Department of Defense names its new programming language &ldquo;Ada&rdquo; in her honour.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== Legacy ===== -->
+    <section id="legacy" class="section section-dark">
+      <div class="container">
+        <h2>Why She Still Matters</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>The first published algorithm</h3>
+            <p>
+              Note G walked through, operation by operation, how the Analytical Engine could compute
+              Bernoulli numbers. It reads much like a program does today: variables, steps and repetition.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Computing beyond numbers</h3>
+            <p>
+              She predicted that such an engine &ldquo;might compose elaborate and scientific pieces of
+              music of any degree of complexity or extent&rdquo;, an early glimpse of computers working
+              with any kind of information.
+            </p>
+          </article>
+          <article class="card">
+            <h3>An inspiration today</h3>
+            <p>
+              Alan Turing answered &ldquo;Lady Lovelace's Objection&rdquo; in his famous 1950 paper on
+              machine intelligence, and Ada Lovelace Day celebrates women in science and technology every October.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer with sources ===== -->
+  <footer id="sources" class="site-footer">
+    <div class="container">
+      <h2>Sources &amp; Further Reading</h2>
+      <ul class="sources">
+        <li>
+          <a id="tribute-link" href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" rel="noopener noreferrer">
+            Wikipedia: Ada Lovelace
+          </a>
+        </li>
+        <li>
+          <a href="https://www.britannica.com/biography/Ada-Lovelace" target="_blank" rel="noopener noreferrer">
+            Encyclopaedia Britannica: Ada Lovelace
+          </a>
+        </li>
+        <li>
+          <a href="https://commons.wikimedia.org/wiki/File:Ada_Lovelace_portrait.jpg" target="_blank" rel="noopener noreferrer">
+            Portrait: Alfred Edward Chalon, public domain, via Wikimedia Commons
+          </a>
+        </li>
+      </ul>
+      <p class="credit">Tribute page built for the Oasis Infobyte Web Development internship.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A browser-based calculator built with HTML, CSS Grid and vanilla JavaScript.">
+  <title>Calculator | OIBSIP Web Development</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="calculator" aria-label="Calculator">
+    <!-- Display: the top line shows the expression, the bottom line shows the current number or result -->
+    <div class="display" role="status" aria-live="polite">
+      <div class="expression" id="expression"></div>
+      <div class="current" id="current">0</div>
+    </div>
+
+    <!-- Buttons: no inline onclick attributes; listeners are attached in script.js -->
+    <div class="keys">
+      <button type="button" class="key key-fn" data-action="clear" aria-label="Clear">C</button>
+      <button type="button" class="key key-fn" data-action="backspace" aria-label="Backspace">&#9003;</button>
+      <button type="button" class="key key-fn" data-action="sign" aria-label="Toggle positive or negative">&plusmn;</button>
+      <button type="button" class="key key-op" data-operator="÷" aria-label="Divide">&divide;</button>
+
+      <button type="button" class="key" data-digit="7">7</button>
+      <button type="button" class="key" data-digit="8">8</button>
+      <button type="button" class="key" data-digit="9">9</button>
+      <button type="button" class="key key-op" data-operator="×" aria-label="Multiply">&times;</button>
+
+      <button type="button" class="key" data-digit="4">4</button>
+      <button type="button" class="key" data-digit="5">5</button>
+      <button type="button" class="key" data-digit="6">6</button>
+      <button type="button" class="key key-op" data-operator="−" aria-label="Subtract">&minus;</button>
+
+      <button type="button" class="key" data-digit="1">1</button>
+      <button type="button" class="key" data-digit="2">2</button>
+      <button type="button" class="key" data-digit="3">3</button>
+      <button type="button" class="key key-op" data-operator="+" aria-label="Add">+</button>
+
+      <button type="button" class="key key-zero" data-digit="0">0</button>
+      <button type="button" class="key" data-action="decimal" aria-label="Decimal point">.</button>
+      <button type="button" class="key key-equals" data-action="equals" aria-label="Equals">=</button>
+    </div>
+  </main>
+
+  <p class="hint">Keyboard works too: 0&ndash;9 &nbsp;.&nbsp; + &minus; * / &nbsp; Enter &nbsp; Backspace &nbsp; Esc</p>
+
+  <script src="script.js"></script>
+</body>
+</html>

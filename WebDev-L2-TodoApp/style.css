@@ -1,0 +1,368 @@
+/* ===== Colour palette ===== */
+:root {
+  --bg: #eef2ff;
+  --surface: #ffffff;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --pending: #f59e0b;
+  --pending-soft: #fef3c7;
+  --done: #16a34a;
+  --done-soft: #dcfce7;
+  --danger: #dc2626;
+  --danger-soft: #fee2e2;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(30, 41, 59, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  padding: 2.5rem 1rem;
+  font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+  font-size: 15px;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image: radial-gradient(circle at top, #e0e7ff 0%, var(--bg) 55%);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ===== Layout ===== */
+.app {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.app-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.app-header h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.subtitle {
+  margin-top: 0.25rem;
+  color: var(--text-muted);
+}
+
+/* ===== Add-task form ===== */
+.task-form {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.task-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  font: inherit;
+  background: var(--surface);
+  transition: border-color 0.15s ease;
+}
+
+.task-form input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.task-form input.invalid {
+  border-color: var(--danger);
+}
+
+.form-error {
+  min-height: 1.4rem;
+  margin: 0.4rem auto 1rem;
+  max-width: 640px;
+  font-size: 0.875rem;
+  color: var(--danger);
+}
+
+/* ===== Buttons ===== */
+.btn {
+  padding: 0.5rem 0.9rem;
+  border: none;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  padding: 0.85rem 1.4rem;
+  font-size: 0.95rem;
+  color: #fff;
+  background: var(--primary);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-edit {
+  color: var(--primary);
+  background: #e0e7ff;
+}
+
+.btn-edit:hover {
+  background: #c7d2fe;
+}
+
+.btn-delete {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.btn-delete:hover {
+  background: #fecaca;
+}
+
+.btn-save {
+  color: #fff;
+  background: var(--done);
+}
+
+.btn-cancel {
+  color: var(--text-muted);
+  background: #f1f5f9;
+}
+
+/* ===== Two lists side by side ===== */
+.lists {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.panel {
+  padding: 1.25rem;
+  background: var(--surface);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.panel-header h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.count {
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.count-pending {
+  color: #92400e;
+  background: var(--pending-soft);
+}
+
+.count-done {
+  color: #166534;
+  background: var(--done-soft);
+}
+
+/* ===== Task items ===== */
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.task {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 0.85rem;
+  padding: 0.9rem;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--pending);
+  border-radius: var(--radius);
+}
+
+/* Only the task that was just added slides in */
+.task.is-new {
+  animation: pop-in 0.25s ease;
+}
+
+.task.completed {
+  border-left-color: var(--done);
+  background: #f8fafc;
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+/* Round "mark complete" toggle */
+.toggle {
+  grid-row: span 2;
+  width: 24px;
+  height: 24px;
+  margin-top: 2px;
+  border: 2px solid var(--pending);
+  border-radius: 50%;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: background-color 0.15s ease;
+}
+
+.toggle::after {
+  content: "";
+  width: 6px;
+  height: 11px;
+  margin-top: -2px;
+  border: solid #fff;
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.15s ease;
+}
+
+.toggle:checked {
+  border-color: var(--done);
+  background: var(--done);
+}
+
+.toggle:checked::after {
+  transform: rotate(45deg) scale(1);
+}
+
+.toggle:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.task-body {
+  min-width: 0;
+}
+
+.task-text {
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+}
+
+.task.completed .task-text {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.task-meta {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.task-actions {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+/* Inline edit input */
+.edit-input {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  font: inherit;
+}
+
+.edit-input:focus {
+  outline: none;
+}
+
+.edit-input.invalid {
+  border-color: var(--danger);
+}
+
+/* ===== Empty states ===== */
+.empty-state {
+  padding: 1.5rem 1rem;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.empty-state[hidden] {
+  display: none;
+}
+
+.app-footer {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 720px) {
+  body {
+    padding: 1.5rem 1rem;
+  }
+
+  .lists {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app-header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .task-form {
+    flex-direction: column;
+  }
+}

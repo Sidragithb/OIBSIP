@@ -1,0 +1,184 @@
+/* ===== Colour palette (change these to re-theme the calculator) ===== */
+:root {
+  --bg-top: #1e1b4b;
+  --bg-bottom: #0f172a;
+  --body-bg: #312e81;
+  --card: #1e293b;
+  --display: #0f172a;
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+  --key: #334155;
+  --key-hover: #475569;
+  --key-fn: #64748b;
+  --key-fn-hover: #7c8aa0;
+  --key-op: #6366f1;
+  --key-op-hover: #818cf8;
+  --key-equals: #f59e0b;
+  --key-equals-hover: #fbbf24;
+  --error: #f87171;
+  --radius: 18px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 1rem;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background-color: var(--body-bg);
+  background-image: linear-gradient(160deg, var(--bg-top), var(--bg-bottom));
+}
+
+/* ===== Calculator card ===== */
+.calculator {
+  width: 100%;
+  max-width: 360px;
+  padding: 1.25rem;
+  background: var(--card);
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* ===== Display ===== */
+.display {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-height: 120px;
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.1rem;
+  background: var(--display);
+  border-radius: var(--radius);
+  text-align: right;
+  overflow: hidden;
+}
+
+.expression {
+  min-height: 1.4rem;
+  font-size: 1rem;
+  color: var(--text-muted);
+  word-break: break-all;
+}
+
+.current {
+  font-size: 2.6rem;
+  font-weight: 300;
+  line-height: 1.2;
+  word-break: break-all;
+}
+
+/* Long numbers get a smaller font so they still fit */
+.current.small {
+  font-size: 1.7rem;
+}
+
+.current.error {
+  font-size: 1.4rem;
+  color: var(--error);
+}
+
+/* ===== Buttons laid out with CSS Grid ===== */
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.key {
+  height: 64px;
+  border: none;
+  border-radius: var(--radius);
+  font: inherit;
+  font-size: 1.5rem;
+  color: var(--text);
+  background: var(--key);
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.08s ease;
+  user-select: none;
+}
+
+.key:hover {
+  background: var(--key-hover);
+}
+
+.key:active,
+.key.pressed {
+  transform: scale(0.94);
+}
+
+.key:focus-visible {
+  outline: 3px solid var(--key-equals);
+  outline-offset: 2px;
+}
+
+.key-fn {
+  background: var(--key-fn);
+}
+
+.key-fn:hover {
+  background: var(--key-fn-hover);
+}
+
+.key-op {
+  background: var(--key-op);
+}
+
+.key-op:hover {
+  background: var(--key-op-hover);
+}
+
+.key-equals {
+  background: var(--key-equals);
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.key-equals:hover {
+  background: var(--key-equals-hover);
+}
+
+/* The 0 button is twice as wide */
+.key-zero {
+  grid-column: span 2;
+}
+
+.hint {
+  max-width: 360px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ===== Small phones ===== */
+@media (max-width: 380px) {
+  .calculator {
+    padding: 1rem;
+    border-radius: 22px;
+  }
+
+  .keys {
+    gap: 0.6rem;
+  }
+
+  .key {
+    height: 56px;
+    font-size: 1.3rem;
+  }
+
+  .current {
+    font-size: 2.2rem;
+  }
+}

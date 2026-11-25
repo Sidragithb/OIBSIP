@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A to-do list app with pending and completed lists, inline editing and localStorage persistence.">
+  <title>To-Do App | OIBSIP Web Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>My To-Do List</h1>
+      <p class="subtitle">Plan your day, one task at a time.</p>
+    </header>
+
+    <!-- Add a task -->
+    <form id="task-form" class="task-form" novalidate>
+      <label for="task-input" class="visually-hidden">New task</label>
+      <input
+        id="task-input"
+        type="text"
+        placeholder="What do you need to do?"
+        maxlength="120"
+        autocomplete="off"
+      >
+      <button type="submit" class="btn btn-primary">Add Task</button>
+    </form>
+    <p id="form-error" class="form-error" role="alert"></p>
+
+    <div class="lists">
+      <!-- Pending tasks -->
+      <section class="panel" aria-labelledby="pending-heading">
+        <div class="panel-header">
+          <h2 id="pending-heading">Pending Tasks</h2>
+          <span id="pending-count" class="count count-pending">0 pending</span>
+        </div>
+        <ul id="pending-list" class="task-list"></ul>
+        <p id="pending-empty" class="empty-state">
+          Nothing pending. Add a task above to get started.
+        </p>
+      </section>
+
+      <!-- Completed tasks -->
+      <section class="panel" aria-labelledby="completed-heading">
+        <div class="panel-header">
+          <h2 id="completed-heading">Completed Tasks</h2>
+          <span id="completed-count" class="count count-done">0 completed</span>
+        </div>
+        <ul id="completed-list" class="task-list"></ul>
+        <p id="completed-empty" class="empty-state">
+          No completed tasks yet. Tick a task when you finish it.
+        </p>
+      </section>
+    </div>
+
+    <footer class="app-footer">
+      Your tasks are saved in this browser, so they stay after a refresh.
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

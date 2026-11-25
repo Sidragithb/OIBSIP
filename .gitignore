@@ -1,0 +1,16 @@
+# Internship material (not part of the submission)
+*.pdf
+
+# Demo videos are uploaded to LinkedIn, not GitHub
+*.mp4
+*.mov
+*.mkv
+*.webm
+
+# Editor / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+node_modules/

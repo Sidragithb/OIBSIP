@@ -1,0 +1,371 @@
+/* ===== Colour palette and fonts ===== */
+:root {
+  --navy: #1b1a3a;
+  --navy-soft: #2a2852;
+  --plum: #4a2c5e;
+  --cream: #faf6ef;
+  --cream-dark: #efe6d6;
+  --gold: #d4a64a;
+  --gold-light: #f0d48f;
+  --ink: #2b2730;
+  --ink-muted: #6b6475;
+  --white: #ffffff;
+
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem; /* keeps headings visible below the sticky nav */
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.container.narrow {
+  max-width: 760px;
+}
+
+/* ===== Sticky navigation ===== */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.25rem;
+  background: rgba(27, 26, 58, 0.95);
+  backdrop-filter: blur(6px);
+}
+
+.nav-brand {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  text-decoration: none;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  list-style: none;
+}
+
+.site-nav ul a {
+  font-size: 0.95rem;
+  color: var(--cream);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.site-nav ul a:hover,
+.site-nav ul a:focus-visible {
+  color: var(--gold-light);
+  border-color: var(--gold);
+  outline: none;
+}
+
+/* ===== Hero ===== */
+/* The header spans the full width; the inner grid is centred */
+.hero {
+  background: var(--navy);
+  color: var(--cream);
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 4rem 1.25rem 5rem;
+}
+
+.eyebrow {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.hero h1 {
+  margin: 0.5rem 0 1rem;
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  color: var(--white);
+}
+
+.tagline {
+  max-width: 30ch;
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--cream-dark);
+}
+
+.hero-figure {
+  justify-self: center;
+  max-width: 380px;
+}
+
+.hero-figure img {
+  border: 6px solid var(--gold);
+  border-radius: 200px 200px 12px 12px; /* arched frame */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
+}
+
+.hero-figure figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--cream-dark);
+}
+
+/* ===== Sections ===== */
+.section {
+  padding: 4.5rem 0;
+}
+
+.section-light {
+  background: var(--cream);
+}
+
+.section-light p + p {
+  margin-top: 1.1rem;
+}
+
+#biography h2::after,
+#timeline h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin-top: 0.75rem;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* ===== Quote ===== */
+.section-quote {
+  background: var(--plum);
+  color: var(--white);
+  text-align: center;
+}
+
+.quote p {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3.6vw, 2.2rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.quote footer {
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: var(--gold-light);
+}
+
+/* ===== Timeline ===== */
+.timeline {
+  position: relative;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.timeline li {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  border-left: 5px solid var(--gold);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(43, 39, 48, 0.06);
+}
+
+.year {
+  flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--plum);
+}
+
+.event h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.15rem;
+}
+
+.event p {
+  font-size: 1rem;
+  color: var(--ink-muted);
+}
+
+/* ===== Legacy cards ===== */
+.section-dark {
+  background: var(--navy);
+  color: var(--cream);
+}
+
+.section-dark h2 {
+  color: var(--white);
+  text-align: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  padding: 1.75rem;
+  background: var(--navy-soft);
+  border-top: 4px solid var(--gold);
+  border-radius: 12px;
+}
+
+.card h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+  color: var(--gold-light);
+}
+
+.card p {
+  font-size: 1rem;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  padding: 3.5rem 0;
+  background: var(--cream-dark);
+}
+
+.site-footer h2 {
+  font-size: 1.5rem;
+}
+
+.sources {
+  display: grid;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.sources a {
+  color: var(--plum);
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+.sources a:hover {
+  color: var(--navy);
+}
+
+.credit {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 860px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 1.25rem 3.5rem;
+    text-align: center;
+  }
+
+  .tagline {
+    margin: 0 auto;
+  }
+
+  .hero-figure {
+    max-width: 300px;
+  }
+
+  .timeline,
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ===== Phone ===== */
+@media (max-width: 520px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .site-nav {
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .site-nav ul {
+    justify-content: center;
+    gap: 0.25rem 1rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .timeline li {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}

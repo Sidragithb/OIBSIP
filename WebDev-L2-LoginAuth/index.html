@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Login page of a client-side authentication system.">
+  <title>Login | SecureAuth</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <main class="auth-card">
+    <div class="brand">
+      <span class="brand-logo" aria-hidden="true">&#128274;</span>
+      <span class="brand-name">SecureAuth</span>
+    </div>
+
+    <h1>Welcome back</h1>
+    <p class="lead">Log in with your username or email.</p>
+
+    <div id="alert" class="alert" role="alert" hidden></div>
+
+    <form id="login-form" novalidate>
+      <div class="field">
+        <label for="identifier">Username or email</label>
+        <input id="identifier" name="identifier" type="text" autocomplete="username" autofocus>
+        <p class="field-error" id="identifier-error"></p>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <div class="password-wrap">
+          <input id="password" name="password" type="password" autocomplete="current-password">
+          <button type="button" class="toggle-password" data-target="password" aria-pressed="false" aria-label="Show password">Show</button>
+        </div>
+        <p class="field-error" id="password-error"></p>
+      </div>
+
+      <button type="submit" id="submit-btn" class="btn btn-primary">Login</button>
+    </form>
+
+    <p class="switch">Don't have an account? <a href="register.html">Create one</a></p>
+  </main>
+
+  <script src="auth.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

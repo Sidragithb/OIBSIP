@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Protected dashboard of a client-side authentication system.">
+  <title>Dashboard | SecureAuth</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Loaded in <head> so the login check runs before the page is shown -->
+  <script src="auth.js"></script>
+  <script src="dashboard.js"></script>
+</head>
+<body class="dashboard-page">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-logo" aria-hidden="true">&#128274;</span>
+      <span class="brand-name">SecureAuth</span>
+    </div>
+    <button type="button" id="logout-btn" class="btn btn-outline">Logout</button>
+  </header>
+
+  <!-- Hidden until dashboard.js confirms there is a valid session -->
+  <main id="dashboard" class="dashboard" hidden>
+    <section class="welcome">
+      <p class="badge">Protected page</p>
+      <h1>Welcome, <span id="welcome-name"></span>!</h1>
+      <p class="lead">You are logged in. This page cannot be opened without a valid session.</p>
+    </section>
+
+    <div class="dash-grid">
+      <section class="panel">
+        <h2>Your account</h2>
+        <dl class="details">
+          <div><dt>Username</dt><dd id="info-username"></dd></div>
+          <div><dt>Email</dt><dd id="info-email"></dd></div>
+          <div><dt>Member since</dt><dd id="info-created"></dd></div>
+          <div><dt>Previous login</dt><dd id="info-previous"></dd></div>
+        </dl>
+      </section>
+
+      <section class="panel">
+        <h2>Session</h2>
+        <dl class="details">
+          <div><dt>Logged in at</dt><dd id="info-login"></dd></div>
+          <div><dt>Session expires</dt><dd id="info-expires"></dd></div>
+        </dl>
+        <p class="note">The session ends when you log out or after 1 hour.</p>
+      </section>
+
+      <section class="panel panel-wide">
+        <h2>How your password is stored</h2>
+        <p class="note">
+          Your password is never saved as plain text. It is hashed with PBKDF2 (SHA-256,
+          100,000 rounds) using a random salt, and only the hash is stored:
+        </p>
+        <code id="info-hash" class="hash"></code>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
